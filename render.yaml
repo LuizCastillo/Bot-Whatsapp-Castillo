@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: castillo-backend
+    runtime: docker
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    buildFilter:
+      paths:
+        - backend/**
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: TIMEZONE
+        value: America/Sao_Paulo
+      - key: SUPABASE_STORAGE_BUCKET
+        value: fotos-avaliacoes
+      - key: CORS_ORIGINS
+        sync: false
+      - key: PROXY_SHARED_SECRET
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: WHATSAPP_TOKEN
+        sync: false
+      - key: WHATSAPP_PHONE_NUMBER_ID
+        sync: false
+      - key: WHATSAPP_VERIFY_TOKEN
+        sync: false
+      - key: META_APP_SECRET
+        sync: false
+      - key: ENDERECO_OFICINA
+        sync: false
